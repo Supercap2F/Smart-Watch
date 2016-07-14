@@ -1,0 +1,87 @@
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 7/7/2016 2:59:13 PM
+
+BeginCmp
+TimeStamp = /577EAE6B;
+Reference = P1;
+ValeurCmp = CONN_11;
+IdModule  = PIN-ARRAY_11x1;
+EndCmp
+
+BeginCmp
+TimeStamp = /577EAD17;
+Reference = TP1;
+ValeurCmp = 3.3VDC;
+IdModule  = 1_Pin_0.04dia;
+EndCmp
+
+BeginCmp
+TimeStamp = /577EAD24;
+Reference = TP2;
+ValeurCmp = GND;
+IdModule  = 1_Pin_0.04dia;
+EndCmp
+
+BeginCmp
+TimeStamp = /577EAD2A;
+Reference = TP3;
+ValeurCmp = PGD;
+IdModule  = TP2_SW;
+EndCmp
+
+BeginCmp
+TimeStamp = /577EAD30;
+Reference = TP4;
+ValeurCmp = PGC;
+IdModule  = TP2_SW;
+EndCmp
+
+BeginCmp
+TimeStamp = /577EAD4A;
+Reference = TP5;
+ValeurCmp = MCLR;
+IdModule  = TP2_SW;
+EndCmp
+
+BeginCmp
+TimeStamp = /577EAD50;
+Reference = TP6;
+ValeurCmp = RTCC;
+IdModule  = TP_SW;
+EndCmp
+
+BeginCmp
+TimeStamp = /577EAD56;
+Reference = TP7;
+ValeurCmp = SCL;
+IdModule  = TP_SW;
+EndCmp
+
+BeginCmp
+TimeStamp = /577EAD5C;
+Reference = TP8;
+ValeurCmp = SDA;
+IdModule  = TP_SW;
+EndCmp
+
+BeginCmp
+TimeStamp = /577EAD62;
+Reference = TP9;
+ValeurCmp = +13VDC;
+IdModule  = 1_Pin_0.04dia;
+EndCmp
+
+BeginCmp
+TimeStamp = /577EAD68;
+Reference = TP10;
+ValeurCmp = USB +5VDC;
+IdModule  = 1_Pin_0.04dia;
+EndCmp
+
+BeginCmp
+TimeStamp = /577EAD6E;
+Reference = TP11;
+ValeurCmp = VBAT;
+IdModule  = 1_Pin_0.04dia;
+EndCmp
+
+EndListe
