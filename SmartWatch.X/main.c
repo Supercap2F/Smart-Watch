@@ -1,149 +1,61 @@
-/* ************************************************************************** */
-/** Descriptive File Name
-
-  @Company
-    Company Name
-
-  @File Name
-    filename.c
-
-  @Summary
-    Brief description of the file.
-
-  @Description
-    Describe the purpose of this file.
- */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/* ************************************************************************** */
+/******************************************************************************/
+/* File:   main.c                                                             */
+/* Author: Supercap2F                                                         */
+/*                                                                            */
+/* Created on August 03, 2016, 11:32 PM                                       */
+/******************************************************************************/
+/* ****************************************************************************/
 /* Section: Included Files                                                    */
-/* ************************************************************************** */
-/* ************************************************************************** */
+/* ****************************************************************************/
+#define _SUPPRESS_PLIB_WARNING // get rid of annoying warnings 
+#include <plib.h>
+#include "init_sys.h"
+#include "Drivers/LCD/SSD1351.h"
 
-/* This section lists the other files that are included in this file.
- */
+/* ****************************************************************************/
+/* Section: Definitions                                                       */
+/* ****************************************************************************/
+#define FALSE 0
+#define TRUE !FALSE
+#define FCY 100000000
 
-/* TODO:  Include other files here if needed. */
+/* ****************************************************************************/
+/* Section: Configuration                                                     */
+/* ****************************************************************************/
+#pragma config FNOSC    = PRIPLL   // the defualt oscillator is Posc with PLL
+#pragma config POSCMOD  = HS       // Posc is in HS mode *MAY NEED TO CHANGE TO XT*
+#pragma config FPLLIDIV = DIV_5    // divide the crystal freq. by 5 going into the PLL
+#pragma config FPLLMUL  = MUL_19   // multiply it by 20 comming out
+#pragma config FPLLODIV = DIV_1    // divide the output from the PLL by one - Posc will be 100MHz
+
+#pragma config ICESEL   = ICS_PGx1 // program on PGEC/PGED 1
+#pragma config OSCIOFNC = OFF      // oscillator out pin disabled 
+
+/* ****************************************************************************/
+/* Section: Local Functions                                                   */
+/* ****************************************************************************/
 
 
-/* ************************************************************************** */
-/* ************************************************************************** */
-/* Section: File Scope or Global Data                                         */
-/* ************************************************************************** */
-/* ************************************************************************** */
-
-/*  A brief description of a section can be given directly below the section
-    banner.
- */
-
-/* ************************************************************************** */
-/** Descriptive Data Item Name
-
-  @Summary
-    Brief one-line summary of the data item.
+/* ****************************************************************************/
+/* Section: Main Code                                                         */
+/* ****************************************************************************/
+int main() {
+    SYSTEMConfigPerformance(FCY); // setup system to improve performance 
+    init_io_ports();              // initialize I/O ports 
+    LCD_Setup();                  // setup the LCD
+//    dis_RES=1;
+//    dis_CS=1;
+//    dis_D_C=1;
+//    dis_E_RD=1;
+//    dis_R_W=1;
+//    dis_EN=1;
+//    LATE=0xFF;
     
-  @Description
-    Full description, explaining the purpose and usage of data item.
-    <p>
-    Additional description in consecutive paragraphs separated by HTML 
-    paragraph breaks, as necessary.
-    <p>
-    Type "JavaDoc" in the "How Do I?" IDE toolbar for more information on tags.
-    
-  @Remarks
-    Any additional remarks
- */
-int global_data;
-
-
-/* ************************************************************************** */
-/* ************************************************************************** */
-// Section: Local Functions                                                   */
-/* ************************************************************************** */
-/* ************************************************************************** */
-
-/*  A brief description of a section can be given directly below the section
-    banner.
- */
-
-/* ************************************************************************** */
-
-/** 
-  @Function
-    int ExampleLocalFunctionName ( int param1, int param2 ) 
-
-  @Summary
-    Brief one-line description of the function.
-
-  @Description
-    Full description, explaining the purpose and usage of the function.
-    <p>
-    Additional description in consecutive paragraphs separated by HTML 
-    paragraph breaks, as necessary.
-    <p>
-    Type "JavaDoc" in the "How Do I?" IDE toolbar for more information on tags.
-
-  @Precondition
-    List and describe any required preconditions. If there are no preconditions,
-    enter "None."
-
-  @Parameters
-    @param param1 Describe the first parameter to the function.
-    
-    @param param2 Describe the second parameter to the function.
-
-  @Returns
-    List (if feasible) and describe the return values of the function.
-    <ul>
-      <li>1   Indicates an error occurred
-      <li>0   Indicates an error did not occur
-    </ul>
-
-  @Remarks
-    Describe any special behavior not described above.
-    <p>
-    Any additional remarks.
-
-  @Example
-    @code
-    if(ExampleFunctionName(1, 2) == 0)
-    {
-        return 3;
+    while(1){ // main loop 
+        delay_clock(10000);
+        LATDbits.LATD8=1;
+        delay_clock(10000);
+        LATDbits.LATD8=0;
     }
- */
-static int ExampleLocalFunction(int param1, int param2) {
-    return 0;
 }
 
-
-/* ************************************************************************** */
-/* ************************************************************************** */
-// Section: Interface Functions                                               */
-/* ************************************************************************** */
-/* ************************************************************************** */
-
-/*  A brief description of a section can be given directly below the section
-    banner.
- */
-
-// *****************************************************************************
-
-/** 
-  @Function
-    int ExampleInterfaceFunctionName ( int param1, int param2 ) 
-
-  @Summary
-    Brief one-line description of the function.
-
-  @Remarks
-    Refer to the example_file.h interface header for function usage details.
- */
-int ExampleInterfaceFunction(int param1, int param2) {
-    return 0;
-}
-
-
-/* *****************************************************************************
- End of File
- */
